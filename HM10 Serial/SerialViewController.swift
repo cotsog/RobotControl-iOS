@@ -34,7 +34,37 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint! // used to move the textField up when the keyboard is present
     @IBOutlet weak var barButton: UIBarButtonItem!
     @IBOutlet weak var navItem: UINavigationItem!
+    @IBOutlet weak var LED: UIButton!
+    @IBOutlet weak var Left: UIButton!
+    @IBOutlet weak var Right: UIButton!
+    @IBOutlet weak var Forward: UIButton!
+    @IBOutlet weak var Reverse: UIButton!
+    @IBOutlet weak var Stop: UIButton!
+    
+    
+    @IBAction func LEDtoggle(_ sender: Any) {
+        LEDToggle()
+    }
+    
+    @IBAction func Forward(_ sender: Any) {
+        forward()
+    }
+    
+    @IBAction func Left(_ sender: Any) {
+        left()
+    }
+    
+    @IBAction func Right(_ sender: Any) {
+        right()
+    }
 
+    @IBAction func Reverse(_ sender: Any) {
+        back()
+    }
+    
+    @IBAction func Stop(_ sender: Any) {
+        stop()
+    }
 
 //MARK: Functions
     
@@ -45,7 +75,7 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         serial = BluetoothSerial(delegate: self)
         
         // UI
-        mainTextView.text = ""
+        //mainTextView.text = ""
         reloadView()
         
         NotificationCenter.default.addObserver(self, selector: #selector(SerialViewController.reloadView), name: NSNotification.Name(rawValue: "reloadStartViewController"), object: nil)
@@ -120,6 +150,32 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         mainTextView.scrollRangeToVisible(range)
     }
     
+    // Helper function to send a message
+    func Send(_ message: String) {
+        if !serial.isReady {
+            let alert = UIAlertController(title: "Not connected", message: "What am I supposed to send this to?", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.default, handler: { action -> Void in self.dismiss(animated: true, completion: nil) }))
+            present(alert, animated: true, completion: nil)
+            messageField.resignFirstResponder()
+        }
+        
+        // send the message to the bluetooth device
+        // but fist, add optionally a line break or carriage return (or both) to the message
+        let pref = UserDefaults.standard.integer(forKey: MessageOptionKey)
+        var msg = message
+        switch pref {
+        case MessageOption.newline.rawValue:
+            msg += "\n"
+        case MessageOption.carriageReturn.rawValue:
+            msg += "\r"
+        case MessageOption.carriageReturnAndNewline.rawValue:
+            msg += "\r\n"
+        default:
+            msg += ""
+        }
+        serial.sendMessageToDevice(msg)
+    }
+    
 
 //MARK: BluetoothSerialDelegate
     
@@ -186,6 +242,36 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
     
     func dismissKeyboard() {
         messageField.resignFirstResponder()
+    }
+    
+    func LEDToggle() {
+        // send the message
+        Send("A")
+    }
+    
+    func left() {
+        // send the message
+        Send("l")
+    }
+    
+    func right() {
+        // send the message
+        Send("r")
+    }
+    
+    func forward() {
+        // send the message
+        Send("f")
+    }
+    
+    func back() {
+        // send the message
+        Send("b")
+    }
+    
+    func stop() {
+        // send the message
+        Send("s")
     }
     
     
