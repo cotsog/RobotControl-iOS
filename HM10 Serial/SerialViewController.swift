@@ -80,10 +80,6 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         
         NotificationCenter.default.addObserver(self, selector: #selector(SerialViewController.reloadView), name: NSNotification.Name(rawValue: "reloadStartViewController"), object: nil)
         
-        // we want to be notified when the keyboard is shown (so we can move the textField up)
-        NotificationCenter.default.addObserver(self, selector: #selector(SerialViewController.keyboardWillShow(_:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(SerialViewController.keyboardWillHide(_:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
-        
         // to dismiss the keyboard if the user taps outside the textField while editing
         let tap = UITapGestureRecognizer(target: self, action: #selector(SerialViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
@@ -101,27 +97,6 @@ final class SerialViewController: UIViewController, UITextFieldDelegate, Bluetoo
         NotificationCenter.default.removeObserver(self)
     }
     
-    func keyboardWillShow(_ notification: Notification) {
-        // animate the text field to stay above the keyboard
-        var info = (notification as NSNotification).userInfo!
-        let value = info[UIKeyboardFrameEndUserInfoKey] as! NSValue
-        let keyboardFrame = value.cgRectValue
-        
-        //TODO: Not animating properly
-        UIView.animate(withDuration: 1, delay: 0, options: UIViewAnimationOptions(), animations: { () -> Void in
-            self.bottomConstraint.constant = keyboardFrame.size.height
-            }, completion: { Bool -> Void in
-            self.textViewScrollToBottom()
-        })
-    }
-    
-    func keyboardWillHide(_ notification: Notification) {
-        // bring the text field back down..
-        UIView.animate(withDuration: 1, delay: 0, options: UIViewAnimationOptions(), animations: { () -> Void in
-            self.bottomConstraint.constant = 0
-        }, completion: nil)
-
-    }
     
     func reloadView() {
         // in case we're the visible view again
