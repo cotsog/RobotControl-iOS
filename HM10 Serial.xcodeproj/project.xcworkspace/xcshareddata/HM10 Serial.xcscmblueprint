@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "704EC0B45B29EE0FB0100B9C5B6B1930908FCE9B",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "704EC0B45B29EE0FB0100B9C5B6B1930908FCE9B" : 9223372036854775807,
+    "723A95758C6F814754CC85AF75EAB90F30A9EBC1" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "05009FEB-35E9-47E7-BF74-0010C6D1D3F3",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "704EC0B45B29EE0FB0100B9C5B6B1930908FCE9B" : "RobotControl-iOS\/",
+    "723A95758C6F814754CC85AF75EAB90F30A9EBC1" : ""
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "HM10 Serial",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "HM10 Serial.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SConaway\/RobotControl-iOS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "704EC0B45B29EE0FB0100B9C5B6B1930908FCE9B"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/SConaway\/BluetoothRobot.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "723A95758C6F814754CC85AF75EAB90F30A9EBC1"
+    }
+  ]
+}
