@@ -406,7 +406,6 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: bigboy.steven.08@gmail.com (C3EJFAKD5S)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 26D7NPEWLJ;
 				ENABLE_BITCODE = NO;
