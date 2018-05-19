@@ -2,3 +2,6 @@ language: swift
 osx_image: xcode9.3
 xcode_project: HM10 Serial.xcodeproj # path to your xcodeproj folder
 xcode_scheme: HM10 Serial
+
+script:
+  - set -o pipefail && xcodebuild -project HM10\ Serial.xcodeproj | xcpretty
