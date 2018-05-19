@@ -9,4 +9,4 @@ before_install:
   - mv ffbc5369-a89d-49dd-90f4-dc27873ed729.mobileprovision "~/Library/MobileDevice/Provisioning\ Profiles/"
 
 script:
-- set -o pipefail && xcodebuild -project HM10\ Serial.xcodeproj
+  - set -o pipefail && xcodebuild -project HM10\ Serial.xcodeproj -allowProvisioningUpdates # | xcpretty
