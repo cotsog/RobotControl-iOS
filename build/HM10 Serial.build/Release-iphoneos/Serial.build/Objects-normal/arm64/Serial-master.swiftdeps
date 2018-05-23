@@ -1,9 +1,0 @@
-version: "Apple Swift version 4.1 (swiftlang-902.0.48 clang-902.0.37.1)"
-options: "10cc28baab873ae9d42667ed90fdaee4"
-build_time: [1527117334, 974489000]
-inputs:
-  "/Users/steven/RobotControl-iOS/HM10 Serial/BluetoothSerial.swift": [9223372036, 854775807]
-  "/Users/steven/RobotControl-iOS/HM10 Serial/SerialViewController.swift": [9223372036, 854775807]
-  "/Users/steven/RobotControl-iOS/HM10 Serial/PreferencesTableViewController.swift": [9223372036, 854775807]
-  "/Users/steven/RobotControl-iOS/HM10 Serial/AppDelegate.swift": [9223372036, 854775807]
-  "/Users/steven/RobotControl-iOS/HM10 Serial/ScannerViewController.swift": [9223372036, 854775807]
